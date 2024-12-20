@@ -1,3 +1,4 @@
-public class Register {
+
+public class RegisterManager {
     
 }
