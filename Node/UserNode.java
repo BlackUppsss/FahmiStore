@@ -1,6 +1,6 @@
 package Node;
 
-public class UserNode {
+class User{
     private int id;
     private String username;
     private String email;
@@ -16,7 +16,7 @@ public class UserNode {
     private Role role;
 
     // Constructor walah
-    public UserNode(int id, String username, String email, String password, Role role){
+    public User(int id, String username, String email, String password, Role role){
         this.id = id;
         this.username = username;
         this.email = email;
@@ -65,6 +65,21 @@ public class UserNode {
     }
 
     public String info(){
-        return "id =" + id + ", username='" + username + '\'' + ", email='" + email + '\'' + ", role =" + role ; 
+        return "id =" + id + ", username ='" + username + '\'' + ", email ='" + email + '\'' + ", role =" + role ; 
+    }
+
+}
+
+public class UserNode {
+    User data;
+    UserNode next;
+
+    UserNode(User data){
+        this.data = data;
+        next = null;
+    }
+
+    public String info(){
+        return data.info();
     }
 }
