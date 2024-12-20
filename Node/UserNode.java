@@ -3,10 +3,10 @@ package Node;
 import Object.User;
 
 public class UserNode {
-    User data;
-    UserNode next;
+    public User data;
+    public UserNode next;
 
-    UserNode(User data){
+    public UserNode(User data){
         this.data = data;
         next = null;
     }

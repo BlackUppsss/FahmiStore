@@ -3,8 +3,8 @@ package Node;
 import Object.History;
 
 public class HistoryNode {
-    History data;
-    HistoryNode next;
+    public History data;
+    public HistoryNode next;
     
     HistoryNode(History data){
         this.data = data;

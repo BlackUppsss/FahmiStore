@@ -1,3 +1,4 @@
-public class History {
+package Controller;
+public class HistoryController {
     
 }
