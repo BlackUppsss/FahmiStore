@@ -21,15 +21,19 @@ public class User{
         this.username = username;
         this.email = email;
         this.password = password;
-        this.role = role; 
+        this.role = role;
+    }
+
+    public User(int id, String username, String email, String password){
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.role = Role.User;
     }
 
     public int getId(){
         return id;
-    }
-
-    public void setId(int id){
-        this.id = id;
     }
 
     public String getUsername(){
@@ -44,17 +48,11 @@ public class User{
         return email;
     }
 
-    public void setEmail(String email){
-        this.email = email;
-    }
 
     public String getPassword(){
         return password;
     }
 
-    public void setPassword(String password){
-        this.password = password;
-    }
 
     public Role getRole(){
         return role;
@@ -65,7 +63,7 @@ public class User{
     }
 
     public String info(){
-        return "id =" + id + ", username ='" + username + '\'' + ", email ='" + email + '\'' + ", role =" + role ; 
+        return "ID: " + id + ", Username: " + username + ", Email: " + email + ", Role: " + role; 
     }
 
 }

@@ -1,12 +1,14 @@
-import Node.TransactionNode;
-import Object.Transaction;
+package Manager;
 
-public class TransactionManager {
-    TransactionNode head;
+import Node.UserNode;
+import Object.User;
 
-     public int insert(Transaction data){
-        TransactionNode nn = new TransactionNode(data); 
-        TransactionNode current = head; 
+
+public class RegisterManager {
+    UserNode head;
+    public int insert(User data){
+        UserNode nn = new UserNode(data); 
+        UserNode current = head; 
 
         if (current == null) {
             nn.next = null;
@@ -18,15 +20,14 @@ public class TransactionManager {
             current.next = nn;
         }
         return 1;
+
     }
 
     public void printList() {
-        TransactionNode current = head;
+        UserNode current = head;
         while (current != null) {
             System.out.println(current.data.info() + " ");
             current = current.next;
         }
     }
-
-
 }
