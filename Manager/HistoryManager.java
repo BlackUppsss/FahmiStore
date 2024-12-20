@@ -1,3 +1,4 @@
-public class History {
+
+public class HistoryManager {
     
 }
