@@ -21,6 +21,36 @@ public class GadgetManager {
 
     }
 
+    public int delete(Gadget data){
+        if(head == null){
+            System.out.println("List gadget kosong");
+            return -1;
+        }
+
+        GadgetNode current = head;
+        GadgetNode previous = null;
+
+        if(current.data.equals(data)){
+            head = current.next;
+            System.out.println("Deleted : " + data);
+            return 1;
+        }
+
+        while (current != null && !current.data.equals(data)) {
+            previous = current;
+            current = current.next;
+        }
+
+        if(current == null){
+            System.out.println("Data gadget tidak ditemukan di dalam list");
+            return -1;
+        }
+
+        previous.next = current.next;
+        System.out.println("Deleted: " + data);
+        return 1;
+    }
+
     public void printList() {
         GadgetNode current = head;
         while (current != null) {

@@ -1,10 +1,10 @@
 package Object;
 
 public class User{
-    private int id;
-    private String username;
-    private String email;
-    private String password;
+    public int id;
+    public String username;
+    public String email;
+    public String password;
 
 
     // Define Role Cak
