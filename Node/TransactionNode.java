@@ -4,10 +4,10 @@ import Object.Transaction;
 
 
 public class TransactionNode {
-    Transaction data;
-    TransactionNode next;
+    public Transaction data;
+    public TransactionNode next;
 
-    TransactionNode(Transaction data){
+    public TransactionNode(Transaction data){
         this.data = data;
         next = null;
     }

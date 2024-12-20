@@ -23,7 +23,7 @@ public class TransactionManager {
     public void printList() {
         TransactionNode current = head;
         while (current != null) {
-            System.out.println(current.data.toString() + " ");
+            System.out.println(current.data.info() + " ");
             current = current.next;
         }
     }

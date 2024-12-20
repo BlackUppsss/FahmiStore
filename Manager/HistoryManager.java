@@ -6,7 +6,7 @@ public class HistoryManager {
     public void printList() {
         HistoryNode current = head;
         while (current != null) {
-            System.out.println(current.data.toString() + " ");
+            System.out.println(current.data.info() + " ");
             current = current.next;
         }
     }

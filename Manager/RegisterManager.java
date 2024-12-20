@@ -21,9 +21,9 @@ public class RegisterManager {
     }
 
     public void printList() {
-        GadgetNode current = head;
+        UserNode current = head;
         while (current != null) {
-            System.out.println(current.data.toString() + " ");
+            System.out.println(current.data.info() + " ");
             current = current.next;
         }
     }
