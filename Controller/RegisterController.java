@@ -30,5 +30,13 @@ public class RegisterController {
       public UserNode getUserListHead() {
         return registerManager.head;
     }
+    public void createAccount(String username, String email, String password) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'createAccount'");
+    }
+    public void createAccountAdmin() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'createAccountAdmin'");
+    }
     
 }

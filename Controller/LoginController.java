@@ -2,6 +2,7 @@ package Controller;
 
 import List.LoginManager;
 import List.RegisterManager;
+import Object.User;
 
 public class LoginController {
 
@@ -10,9 +11,10 @@ public class LoginController {
         this.loginManager = new LoginManager();
     }
 
-    public void Login(String username, String password){
+    public User Login(String username, String password){
         String loginResult = loginManager.login(username, password);
         System.out.println(loginResult);
+        return null;
     }
 
     public void loadRegisteredUser(RegisterController registerController){
