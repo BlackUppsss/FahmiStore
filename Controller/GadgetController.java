@@ -30,4 +30,13 @@ public class GadgetController {
         System.out.println("Gadget List:");
         gadgetManager.printList();
     }
+
+    public void reduceGadgetStock(String gadgetName, int amount) {
+        boolean result = gadgetManager.reduceStock(gadgetName, amount);
+        if (result) {
+            System.out.println("Stock successfully reduced for gadget: " + gadgetName);
+        } else {
+            System.out.println("Failed to reduce stock for gadget: " + gadgetName);
+        }
+    }
 }

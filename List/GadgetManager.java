@@ -61,5 +61,23 @@ public class GadgetManager {
         }
     }
 
-    
+    public boolean reduceStock(String gadgetName, int amount) {
+        GadgetNode current = head;
+        while (current != null) {
+            if (current.data.getnamaGadget().equalsIgnoreCase(gadgetName)) {
+                int currentStock = current.data.getStock();
+                if (currentStock >= amount) {
+                    current.data.setStock(currentStock - amount);
+                    System.out.println("Stock reduced. Remaining stock of " + gadgetName + ": " + current.data.getStock());
+                    return true;
+                } else {
+                    System.out.println("Not enough stock for " + gadgetName);
+                    return false;
+                }
+            }
+            current = current.next;
+        }
+        System.out.println("Gadget not found: " + gadgetName);
+        return false;
+    }
 }

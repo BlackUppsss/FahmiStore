@@ -1,9 +1,8 @@
 package Object;
 
-import java.sql.Timestamp;
-
 import Node.GadgetNode;
 import Node.UserNode;
+import java.sql.Timestamp;
 
 public class Transaction{
     public int id;
