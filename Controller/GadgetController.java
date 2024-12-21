@@ -13,7 +13,7 @@ public class GadgetController {
      
         Gadget newGadget = new Gadget(0, namaGadget, price, stock);
         gadgetManager.insert(newGadget);
-        System.out.println("User registered successfully: " + namaGadget);
+        System.out.println("Gadget registered successfully: " + namaGadget);
 
     }
 
