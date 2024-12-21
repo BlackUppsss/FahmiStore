@@ -1,13 +1,10 @@
 package Object;
-
-import Node.GadgetNode;
-import Node.UserNode;
 import java.sql.Timestamp;
 
 public class Transaction{
     public int id;
-    public UserNode user;
-    public GadgetNode gadget;
+    public User user;
+    public Gadget gadget;
     public Timestamp tanggalTransaksi;
     
     public enum Status{
@@ -16,8 +13,10 @@ public class Transaction{
 
     public Status status;
 
-    public Transaction(int id, Timestamp tanggalTransaksi, Status status){
+    public Transaction(int id, User user, Gadget gadget, Timestamp tanggalTransaksi, Status status){
         this.id = id;
+        this.user = user;
+        this.gadget = gadget;
         this.tanggalTransaksi = tanggalTransaksi;
         this.status = status;
     }
@@ -26,11 +25,11 @@ public class Transaction{
         return id;
     }
 
-    public Timestamp tangTimestamp(){
+    public Timestamp tanggalTimestamp(){
         return tanggalTransaksi;
     }
 
-    public UserNode getUser(){
+    public User getUser(){
         return user;
     }
 
@@ -38,16 +37,9 @@ public class Transaction{
         return status;
     }
 
-    public void setUser(UserNode user){
-        this.user = user;
-    }
 
-    public GadgetNode getGadget(){
+    public Gadget getGadget(){
         return gadget;
-    }
-
-    public void setGadget(GadgetNode gadget){
-        this.gadget = gadget;
     }
 
     public String info(){
