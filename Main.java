@@ -1,37 +1,26 @@
+
 import Controller.GadgetController;
 import Controller.LoginController;
 import Controller.RegisterController;
+import Controller.TransactionController;
 import Object.User;
 
 import java.util.*;
 
 public class Main {
+
     public static void main(String[] args) {
-        
-        RegisterController registerController = new RegisterController();
-        LoginController loginController = new LoginController();
         GadgetController gadgetController = new GadgetController();
-        MenuAplikasi(registerController, loginController, gadgetController);
-        
-                // gadgetController.viewAllGadgets();
-        
-                
-                
-                // registerController.createAcoount("ivan", "ivansahmurasoni@gmail.com", "12345");
-                // registerController.createAcoountAdmin("admin", "admin@test.net", "admin");
-                
-                // System.out.println("----- Registered Users -----");
-                // registerController.viewAllUsers();
-                
-                // System.out.println("----- Login Users -----");
-                // LoginController.loadRegisteredUser(registerController);    
-                // LoginController.Login("ivansahmurasoni@gmail.com", "12345");
-                // LoginController.Login("admin@test.net", "admin");
-                
-            }
-        static void MenuAplikasi(RegisterController registerController, LoginController LoginController, GadgetController gadgetController){
+        RegisterController registerController = new RegisterController();
+        LoginController LoginController = new LoginController();
+        TransactionController transactionController = new TransactionController();
+
+        MenuAplikasi(registerController, LoginController, gadgetController, transactionController);
+    }
+        static void MenuAplikasi(RegisterController registerController, LoginController LoginController, GadgetController gadgetController, TransactionController transactionController){
             Scanner inp = new Scanner(System.in);
             int pilihan;
+            User loggedInUser = null;
             do {
                 System.out.println("\n===== MENU =====");
                 System.out.println("1. Register User");
@@ -39,13 +28,12 @@ public class Main {
                 System.out.println("3. Login");
                 System.out.println("4. View All Registered Users");
                 System.out.println("5. Add Gadget");
-                System.out.println("6. View All Gadgets");
+                System.out.println("6. Buy Gadgets");
+                System.out.println("7. History Transaksi");
                 System.out.println("0. Exit");
-                System.out.print("Enter your choice: ");
-
+                System.out.print("Masukkan Pilihanmu: ");
                 pilihan = inp.nextInt();
                 inp.nextLine();
-                User loggedInUser = null;
 
                 switch (pilihan) {
                     case 1:
@@ -69,17 +57,12 @@ public class Main {
                         break;
     
                     case 3:
+                        LoginController.loadRegisteredUser(registerController);
                         System.out.print("Enter email: ");
                         String loginEmail = inp.nextLine();
                         System.out.print("Enter password: ");
                         String loginPassword = inp.nextLine();
                         loggedInUser = LoginController.Login(loginEmail, loginPassword);
-
-                        if (loggedInUser != null) {
-                            System.out.println("Login successful! Welcome, " + loggedInUser.getUsername());
-                        } else {
-                            System.out.println("Invalid email or password.");
-                        }
                         break;
     
                     case 4:
@@ -90,7 +73,7 @@ public class Main {
                     case 5:
                         if (loggedInUser == null) {
                             System.out.println("You must be logged in to perform this action.");
-                        } else if ("admin".equals(loggedInUser.getRole())) {
+                        } else if (User.Role.Admin.equals(loggedInUser.getRole())) {
                             System.out.print("Enter gadget name: ");
                             String gadgetName = inp.nextLine();
                             System.out.print("Enter gadget price: ");
@@ -105,8 +88,19 @@ public class Main {
                         break;
     
                     case 6:
-                        System.out.println("----- Gadget List -----");
+                        System.out.println("----- Beli Gadget -----");
                         gadgetController.viewAllGadgets();
+                        System.out.print("Enter gadget name: ");
+                            String gadgetName = inp.nextLine();
+                            System.out.print("Enter how much you wanted to buy: ");
+                            int stock = inp.nextInt();
+                            gadgetController.reduceGadgetStock(gadgetName, stock);
+                            System.out.println("Gadget bought successfully!");
+                        break;
+
+                    case 7:
+                        System.out.println("----- History Transaksi -----");
+                        transactionController.viewAllTransaction();
                         break;
     
                     case 0:
@@ -117,7 +111,6 @@ public class Main {
                         System.out.println("Invalid choice. Please try again.");
                 }
 
-            
         } while (pilihan != 0);
     }
 
