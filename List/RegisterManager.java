@@ -1,11 +1,11 @@
-package Manager;
+package List;
 
 import Node.UserNode;
 import Object.User;
 
 
 public class RegisterManager {
-    UserNode head;
+    public UserNode head;
     public int insert(User data){
         UserNode nn = new UserNode(data); 
         UserNode current = head; 

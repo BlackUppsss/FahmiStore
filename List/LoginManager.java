@@ -1,8 +1,10 @@
+package List;
+
 import Node.UserNode;
 import Object.User;
 
 public class LoginManager {
-    UserNode head;     
+    public UserNode head;     
 
     public String login(String email, String password){
         UserNode current = head;
