@@ -27,4 +27,15 @@ public class LoginManager {
             current = current.next;
         }
     }
+
+    public UserNode findUserNode(String email) {
+        UserNode current = head;
+        while (current != null) {
+            if (current.data.getEmail().equalsIgnoreCase(email)) {
+                return current;
+            }
+            current = current.next;
+        }
+        return null;
+    }
 }

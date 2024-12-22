@@ -23,6 +23,17 @@ public class GadgetManager {
 
     }
 
+    public GadgetNode findGadgetNode(String gadgetName) {
+        GadgetNode current = head;
+        while (current != null) {
+            if (current.data.getnamaGadget().equalsIgnoreCase(gadgetName)) {
+                return current;
+            }
+            current = current.next;
+        }
+        return null;
+    }
+
     public int delete(Gadget data){
         if(head == null){
             System.out.println("List gadget kosong");

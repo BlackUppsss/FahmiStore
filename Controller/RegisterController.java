@@ -42,5 +42,7 @@ public class RegisterController {
       public UserNode getUserListHead() {
         return registerManager.head;
     }
+
+    
     
 }

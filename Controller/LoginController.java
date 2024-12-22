@@ -30,4 +30,8 @@ public class LoginController {
         this.loginManager.head = registerController.getUserListHead();
     }
 
+    public UserNode findUserNode(String email) {
+        return loginManager.findUserNode(email);
+    }
+
 }

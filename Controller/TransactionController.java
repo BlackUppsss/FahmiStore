@@ -8,14 +8,15 @@ import Object.Transaction;
 
 public class TransactionController {
     public TransactionManager transactionManager;
+    private static int transactionCounter = 1;
 
     public TransactionController(){
         this.transactionManager = new TransactionManager();
     }
 
-    public void createTransaction(int id, UserNode user, GadgetNode gadget, int stock, double price){
+    public void createTransaction(UserNode user, GadgetNode gadget, int stock, double price){
         Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-        Transaction newTransaction = new Transaction(id++, user.data, gadget.data, currentTime, Transaction.Status.diproses);
+        Transaction newTransaction = new Transaction(transactionCounter++, user.data, gadget.data, currentTime, Transaction.Status.diproses);
 
         transactionManager.insert(newTransaction);
         System.out.println("Transaction created successfully with ID: " + newTransaction.getId());
