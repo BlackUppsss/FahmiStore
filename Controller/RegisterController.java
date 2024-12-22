@@ -9,16 +9,28 @@ public class RegisterController {
     public RegisterController() {
         this.registerManager = new RegisterManager();
     }
-    public void createAcoount(String username, String email, String password) {
+    
+    public User createAcoount(String username, String email, String password) {
+        email = email.trim();
+        password = password.trim();
+
         User newUser = new User(0, username, email, password, User.Role.User);
         registerManager.insert(newUser);
         System.out.println("User registered successfully: " + email);
+
+        return newUser;
+
     }
 
-    public void createAcoountAdmin(String username, String email, String password) {
+    public User createAcoountAdmin(String username, String email, String password) {
+        email = email.trim();
+        password = password.trim();
+
         User newUser = new User(0, username, email, password, User.Role.Admin);
         registerManager.insert(newUser);
         System.out.println("Admin registered successfully: " + email);
+
+        return newUser;
 
     }
 
@@ -30,13 +42,7 @@ public class RegisterController {
       public UserNode getUserListHead() {
         return registerManager.head;
     }
-    public void createAccount(String username, String email, String password) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createAccount'");
-    }
-    public void createAccountAdmin() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createAccountAdmin'");
-    }
+
+    
     
 }

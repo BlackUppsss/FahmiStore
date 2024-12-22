@@ -6,6 +6,7 @@ import Object.User;
 
 public class RegisterManager {
     public UserNode head;
+    
     public int insert(User data){
         UserNode nn = new UserNode(data); 
         UserNode current = head; 

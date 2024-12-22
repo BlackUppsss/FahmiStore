@@ -4,7 +4,9 @@ import Node.TransactionNode;
 import Object.Transaction;
 
 public class TransactionManager {
-    TransactionNode head;
+    public TransactionNode head;
+
+    
 
      public int insert(Transaction data){
         TransactionNode nn = new TransactionNode(data); 

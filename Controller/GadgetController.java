@@ -1,6 +1,7 @@
 package Controller;
 
 import List.GadgetManager;
+import Node.GadgetNode;
 import Object.Gadget;
 
 public class GadgetController {
@@ -31,12 +32,18 @@ public class GadgetController {
         gadgetManager.printList();
     }
 
-    public void reduceGadgetStock(String gadgetName, int amount) {
+    public boolean reduceGadgetStock(String gadgetName, int amount) {
         boolean result = gadgetManager.reduceStock(gadgetName, amount);
         if (result) {
             System.out.println("Stock successfully reduced for gadget: " + gadgetName);
         } else {
             System.out.println("Failed to reduce stock for gadget: " + gadgetName);
         }
+
+        return true;
+    }
+
+     public GadgetNode findGadgetNode(String gadgetName) {
+        return gadgetManager.findGadgetNode(gadgetName);
     }
 }

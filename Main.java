@@ -3,6 +3,8 @@ import Controller.GadgetController;
 import Controller.LoginController;
 import Controller.RegisterController;
 import Controller.TransactionController;
+import Node.GadgetNode;
+import Node.UserNode;
 import Object.User;
 
 import java.util.*;
@@ -94,8 +96,25 @@ public class Main {
                             String gadgetName = inp.nextLine();
                             System.out.print("Enter how much you wanted to buy: ");
                             int stock = inp.nextInt();
-                            gadgetController.reduceGadgetStock(gadgetName, stock);
-                            System.out.println("Gadget bought successfully!");
+                            boolean purchaseSuccess = gadgetController.reduceGadgetStock(gadgetName, stock);
+
+                            if(purchaseSuccess){
+                                GadgetNode gadgetNode = gadgetController.gadgetManager.findGadgetNode(gadgetName);
+                                UserNode userNode = LoginController.findUserNode(loggedInUser.getEmail());
+
+                            if (gadgetNode != null && userNode != null) {
+                                transactionController.createTransaction(
+                                    userNode, 
+                                    gadgetNode, 
+                                    stock,
+                                    gadgetNode.data.getPrice() * stock
+                                );
+                                System.out.println("Gadget bought successfully!");
+                            }
+                        } else {
+                            System.out.println(purchaseSuccess);
+                            System.out.println("Purchase failed. Please check stock availability.");
+                        }
                         break;
 
                     case 7:
