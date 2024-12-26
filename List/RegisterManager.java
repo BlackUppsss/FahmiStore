@@ -21,9 +21,7 @@ public class RegisterManager {
             current.next = nn;
         }
         return 1;
-
     }
-
     public void printList() {
         UserNode current = head;
         while (current != null) {

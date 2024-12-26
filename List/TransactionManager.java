@@ -6,8 +6,6 @@ import Object.Transaction;
 public class TransactionManager {
     public TransactionNode head;
 
-    
-
      public int insert(Transaction data){
         TransactionNode nn = new TransactionNode(data); 
         TransactionNode current = head; 
